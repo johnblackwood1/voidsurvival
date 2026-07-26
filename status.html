@@ -11,7 +11,7 @@
       fetch('https://api.mcstatus.io/v2/status/java/womanly-renewable.gl.joinmc.link')
         .then(response => response.json())
         .then(data => {
-          const statusDiv = document.getElementById('mc-status');
+          const statusDiv = document.getElementById('online');
           if (data.online) {
             statusDiv.textContent = `Online: ${data.players.online}/${data.players.max} players`;
           } else {
@@ -19,7 +19,7 @@
           }
         })
         .catch(() => {
-          document.getElementById('mc-status').textContent = 'Offline';
+          document.getElementById('online').textContent = 'Offline';
         });
     </script>
   </body>
