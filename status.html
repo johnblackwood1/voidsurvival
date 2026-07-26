@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>status</title>
+  </head>
+    <body>
+    <h1>server status</h1>
+    <br>
+    <br>
+
+    <script>
+      fetch('https://api.mcstatus.io/v2/status/java/womanly-renewable.gl.joinmc.link')
+        .then(response => response.json())
+        .then(data => {
+          const statusDiv = document.getElementById('mc-status');
+          if (data.online) {
+            statusDiv.textContent = `Online: ${data.players.online}/${data.players.max} players`;
+          } else {
+            statusDiv.textContent = 'Offline';
+          }
+        })
+        .catch(() => {
+          document.getElementById('mc-status').textContent = 'Offline';
+        });
+    </script>
+  </body>
+</html>
