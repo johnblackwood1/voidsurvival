@@ -12,15 +12,16 @@
         .then(response => response.json())
         .then(data => {
           const statusDiv = document.getElementById('online');
-          if (data.online) {
-            statusDiv.textContent = `Online: ${data.players.online}/${data.players.max} players`;
-          } else {
+          if (data === 1) {  // 1 = offline
             statusDiv.textContent = 'Offline';
+          } else if (data === 0) {  // 0 = online
+            statusDiv.textContent = 'Online';
           }
         })
         .catch(() => {
           document.getElementById('online').textContent = 'Offline';
         });
     </script>
+    <div id="online"></div>
   </body>
 </html>
